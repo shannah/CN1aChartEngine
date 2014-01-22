@@ -103,5 +103,15 @@ Same chart running on iPhone4S:
 
 <img src="http://media.weblite.ca/files/photos/ios1.jpg?max_width=320"/>
 <img src="http://media.weblite.ca/files/photos/ios2.jpg?max_width=320"/>
+<img src="http://media.weblite.ca/files/photos/ios3.jpg?max_width=320"/>
+<img src="http://media.weblite.ca/files/photos/ios4.jpg?max_width=320"/>
+<img src="http://media.weblite.ca/files/photos/ios5.jpg?max_width=320"/>
+<img src="http://media.weblite.ca/files/photos/ios6.jpg?max_width=320"/>
+<img src="http://media.weblite.ca/files/photos/ios7.jpg?max_width=320"/>
+<img src="http://media.weblite.ca/files/photos/ios8.jpg?max_width=320"/>
+<img src="http://media.weblite.ca/files/photos/ios9.jpg?max_width=320"/>
+<img src="http://media.weblite.ca/files/photos/ios10.jpg?max_width=320"/>
+<img src="http://media.weblite.ca/files/photos/ios11.jpg?max_width=320"/>
+<img src="http://media.weblite.ca/files/photos/ios12.jpg?max_width=320"/>
 
 
