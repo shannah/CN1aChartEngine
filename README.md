@@ -2,6 +2,8 @@
 
 This is a port of the fantastic android [achartengine](https://code.google.com/p/achartengine/) for [Codename One](http://www.codenameone.com).
 
+<center><img src="https://github-camo.global.ssl.fastly.net/33ca301b3b4819dd5b0ed772ae5f26c2a3500659/687474703a2f2f6d656469612e7765626c6974652e63612f66696c65732f70686f746f732f696f73392e6a70673f6d61785f77696474683d333230"/></center>
+
 ##Synopsis
 From the achartengine google page:
 
