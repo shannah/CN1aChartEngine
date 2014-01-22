@@ -25,8 +25,15 @@ Alpha.
 
 1. Add the [CN1Pisces](https://github.com/shannah/CN1Pisces) library to your Netbeans project.
 2. Add the [CN1FontBox](https://github.com/shannah/CN1FontBox) library to your Netbeans project.
-3. Copy the CN1aChartEngine.cn1lib file into your Netbeans project's lib directory.
+3. Copy the [CN1aChartEngine.cn1lib](https://github.com/shannah/CN1aChartEngine/raw/master/dist/CN1aChartEngine.cn1lib) file into your Netbeans project's lib directory.
 4. Select "Refresh Libs" in your project by right clicking on the project icon in the project explorer and selecting "Refresh Libs" from the menu.
+
+##Documentation
+
+1. [JavaDocs](https://rawgithub.com/shannah/CN1aChartEngine/master/dist/javadoc/index.html)
+2. [CN1aChartEngineDemo](https://github.com/shannah/CN1aChartEngineDemo) - Codename One port of the aChartEngine demo application.  You can view the source to see how all charts were created.  You should be able to build the App also.
+3. Original [achartengine](https://code.google.com/p/achartengine/) google code site.
+
 
 ##Usage
 
@@ -113,5 +120,10 @@ Same chart running on iPhone4S:
 <img src="http://media.weblite.ca/files/photos/ios10.jpg?max_width=320"/>
 <img src="http://media.weblite.ca/files/photos/ios11.jpg?max_width=320"/>
 <img src="http://media.weblite.ca/files/photos/ios12.jpg?max_width=320"/>
+
+##Credits
+
+1. achartengine library created by [4ViewSoft](http://www.4viewsoft.com/)
+2. Codename One port for achartengine developed by [Steve Hannah](http://sjhannah.com)
 
 
