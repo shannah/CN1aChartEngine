@@ -61,6 +61,9 @@ Alpha.
 2. [CN1aChartEngineDemo](https://github.com/shannah/CN1aChartEngineDemo) - Codename One port of the aChartEngine demo application.  You can view the source to see how all charts were created.  You should be able to build the App also.
 3. Original [achartengine](https://code.google.com/p/achartengine/) google code site.
 
+##Demo
+
+Check out the [CN1aChartEngine Demo application](https://github.com/shannah/CN1aChartEngineDemo) for examples of how to use the library.
 
 ##Usage
 
