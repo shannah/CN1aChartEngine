@@ -93,4 +93,15 @@ Result:
 
 ![Resulting Chart](screenshots/monthly_temperature_range.png)
 
+(This screenshot was taken directly from a Nexus 7 Android Device)
+
+Same chart running on iPhone4S:
+
+![Resulting Chart iOS](screenshots/avg_monthly_temperature_ios.jpg)
+
+##Screenshots
+
+<img src="http://media.weblite.ca/files/photos/ios1.jpg?max_width=320"/>
+<img src="http://media.weblite.ca/files/photos/ios2.jpg?max_width=320"/>
+
 
