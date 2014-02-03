@@ -176,6 +176,7 @@ public class View {
             Image buf = Image.createImage(renderingWidth, renderingHeight, bgColor);
             
             Graphics g = buf.getGraphics();
+            g.setClip(0, 0, renderingWidth, renderingHeight);
             Paint.g = g;
             //super.paint(g); //To change body of generated methods, choose Tools | Templates.
             canvas.g = g;
