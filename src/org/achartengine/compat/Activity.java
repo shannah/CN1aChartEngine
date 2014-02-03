@@ -56,4 +56,8 @@ public class Activity extends Context{
         peer.addComponent(BorderLayout.CENTER, v.peer);
         
     }
+    
+    public Form getPeer(){
+        return peer;
+    }
 }

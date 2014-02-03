@@ -41,7 +41,9 @@ public class View {
         peer.getStyle().setBgTransparency(255);
     }
     
-    
+    public Component getPeer(){
+        return peer;
+    }
     
     public boolean onTouchEvent(MotionEvent event) {
         return false;
