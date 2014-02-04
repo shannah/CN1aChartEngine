@@ -32,6 +32,10 @@ public class View {
     private Bitmap drawingCache;
     Peer peer;
 
+    private boolean touchEventsEnabled = false;
+    
+    
+    
 
     public View(Context context){
         peer = new Peer();
@@ -39,6 +43,14 @@ public class View {
         peer.getUnselectedStyle().setBgColor(0x000000);
         peer.getSelectedStyle().setBgColor(0x000000);
         peer.getStyle().setBgTransparency(255);
+    }
+    
+    public void setTouchEventsEnabled(boolean e){
+        touchEventsEnabled = e;
+    }
+    
+    public boolean isTouchEventsEnabled(){
+        return touchEventsEnabled;
     }
     
     public Component getPeer(){
@@ -139,33 +151,39 @@ public class View {
         @Override
         public void pointerPressed(int x, int y) {
             super.pointerPressed(x, y); //To change body of generated methods, choose Tools | Templates.
-            event.x = x;
-            event.y = y;
-            event.action=MotionEvent.ACTION_DOWN;
-            event.count=1;
-            onTouchEvent(event);
+            if ( touchEventsEnabled ){
+                event.x = x;
+                event.y = y;
+                event.action=MotionEvent.ACTION_DOWN;
+                event.count=1;
+                onTouchEvent(event);
+            }
         }
 
         @Override
         public void pointerReleased(int x, int y) {
             super.pointerReleased(x, y); //To change body of generated methods, choose Tools | Templates.
-            event.x = x;
-            event.y = y;
-            event.action=MotionEvent.ACTION_UP;
-            event.count=1;
-            onTouchEvent(event);
-            event.action=MotionEvent.ACTION_POINTER_UP;
-            onTouchEvent(event);
+            if ( touchEventsEnabled ){
+                event.x = x;
+                event.y = y;
+                event.action=MotionEvent.ACTION_UP;
+                event.count=1;
+                onTouchEvent(event);
+                event.action=MotionEvent.ACTION_POINTER_UP;
+                onTouchEvent(event);
+            }
         }
 
         @Override
         public void pointerDragged(int x, int y) {
             super.pointerDragged(x, y); //To change body of generated methods, choose Tools | Templates.
-            event.x = x;
-            event.y = y;
-            event.action=MotionEvent.ACTION_MOVE;
-            event.count=1;
-            onTouchEvent(event);
+            if ( touchEventsEnabled ){
+                event.x = x;
+                event.y = y;
+                event.action=MotionEvent.ACTION_MOVE;
+                event.count=1;
+                onTouchEvent(event);
+            }
         }
 
         
