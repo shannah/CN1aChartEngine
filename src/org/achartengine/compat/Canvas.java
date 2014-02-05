@@ -168,12 +168,14 @@ public class Canvas  {
             //Log.p(rc1+"");
             if ( paint.getTextAlign() == Align.CENTER){
                 offX = -(rc1.right-rc1.left)/2;
+            } else if ( paint.getTextAlign() == Align.RIGHT){
+                offX = -(rc1.right-rc1.left);
             }
             int h = rc1.bottom-rc1.top;
             //Log.p("H is "+h);
             pisces.Path p = new pisces.Path();
             
-            paint.getTypeface().piscesFont().draw(p, string, 0, 0, 0);
+            paint.getTypeface().piscesFont().draw(p, string, 0, pf.getAscent(), 0);
             
             //double scale = transform.getScale();
             transform.translate(x, y-h);
