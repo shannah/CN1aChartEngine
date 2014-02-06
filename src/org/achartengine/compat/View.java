@@ -33,6 +33,8 @@ public class View {
     Peer peer;
 
     private boolean touchEventsEnabled = false;
+    private int renderedWidth=0;
+    private int renderedHeight=0;
     
     
     
@@ -115,7 +117,7 @@ public class View {
         @Override
         public void paint(Graphics g) {
             boolean rendered = false;
-            if ( (buffer == null || updateBuffer) && !renderingBuffer ){
+            if ( (renderedWidth != getWidth() || renderedHeight != getHeight() || buffer == null || updateBuffer) && !renderingBuffer ){
                 renderingBuffer = true;
                 renderingWidth = getWidth();
                 renderingHeight = getHeight();
@@ -209,6 +211,8 @@ public class View {
             buf.dispose();
             renderingBuffer = false;
             updateBuffer = false;
+            renderedWidth = renderingWidth;
+            renderedHeight = renderingHeight;
             Display.getInstance().callSerially(new Runnable(){
 
                 public void run() {
