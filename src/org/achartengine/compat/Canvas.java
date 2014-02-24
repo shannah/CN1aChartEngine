@@ -221,6 +221,8 @@ public class Canvas  {
         }
         Rectangle2D bounds = r1;
         p.getBounds2D(bounds);
+        if (bounds.width == 0 ) bounds.width = 1;
+        if ( bounds.height == 0 ) bounds.height = 1;
         //Log.p(bounds+"");
         pisces.Graphics i = pg;//new pisces.Graphics((int)bounds.getWidth(), (int)bounds.getHeight());
         i.setColor(pisces.Color.Transparent.White);
@@ -237,6 +239,7 @@ public class Canvas  {
             i.fill(p);
             i.draw(p);
         }
+        
         
         Image im = i.toImage(0,0,(int)bounds.getWidth(), (int)bounds.getHeight());
         //Log.p("Im width "+im.getWidth());
