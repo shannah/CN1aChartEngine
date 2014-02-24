@@ -35,7 +35,7 @@ public class View {
     private boolean touchEventsEnabled = false;
     private int renderedWidth=0;
     private int renderedHeight=0;
-    
+    private final static boolean DEBUG = false;
     
     
 
@@ -118,6 +118,9 @@ public class View {
         public void paint(Graphics g) {
             boolean rendered = false;
             if ( (renderedWidth != getWidth() || renderedHeight != getHeight() || buffer == null || updateBuffer) && !renderingBuffer ){
+                if ( DEBUG ){
+                    Log.p("Re rendering");
+                }
                 renderingBuffer = true;
                 renderingWidth = getWidth();
                 renderingHeight = getHeight();
@@ -147,6 +150,7 @@ public class View {
         }
 
 
+        
 
        
 
@@ -203,7 +207,9 @@ public class View {
             long start = System.currentTimeMillis();
             onDraw(canvas);
             long end = System.currentTimeMillis();
-            Log.p("Took "+(end-start)+"ms to render chart");
+            if ( DEBUG ){
+                Log.p("Took "+(end-start)+"ms to render chart");
+            }
             if ( buffer != null ){
                 buffer.dispose();
             }

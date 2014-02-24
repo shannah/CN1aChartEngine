@@ -88,10 +88,10 @@ public class PieChart extends RoundChart {
     int mRadius = Math.min(Math.abs(right - left), Math.abs(bottom - top));
     int radius = (int) (mRadius * 0.35 * mRenderer.getScale());
 
-    if (mCenterX == NO_VALUE) {
+    if (autoCalculateCenter || mCenterX == NO_VALUE) {
       mCenterX = (left + right) / 2;
     }
-    if (mCenterY == NO_VALUE) {
+    if (autoCalculateCenter || mCenterY == NO_VALUE) {
       mCenterY = (bottom + top) / 2;
     }
 

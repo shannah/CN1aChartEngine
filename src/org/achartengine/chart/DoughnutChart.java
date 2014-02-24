@@ -85,10 +85,10 @@ public class DoughnutChart extends RoundChart {
     double rCoef = 0.35 * mRenderer.getScale();
     double decCoef = 0.2 / cLength;
     int radius = (int) (mRadius * rCoef);
-    if (mCenterX == NO_VALUE) {
+    if (autoCalculateCenter || mCenterX == NO_VALUE) {
       mCenterX = (left + right) / 2;
     }
-    if (mCenterY == NO_VALUE) {
+    if (autoCalculateCenter || mCenterY == NO_VALUE) {
       mCenterY = (bottom + top) / 2;
     }
     float shortRadius = radius * 0.9f;

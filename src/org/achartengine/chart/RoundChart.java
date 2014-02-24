@@ -38,6 +38,7 @@ public abstract class RoundChart extends AbstractChart {
   protected int mCenterX = NO_VALUE;
   /** The chart center y axis. */
   protected int mCenterY = NO_VALUE;
+  protected boolean autoCalculateCenter = true;
 
   /**
    * Round chart.
@@ -137,6 +138,14 @@ public abstract class RoundChart extends AbstractChart {
    */
   public void setCenterY(int centerY) {
     mCenterY = centerY;
+  }
+  
+  public void setAutocalculateCenter(boolean a){
+      autoCalculateCenter = a;
+  }
+  
+  public boolean isAutocalculateCenter(){
+      return autoCalculateCenter;
   }
 
 }
