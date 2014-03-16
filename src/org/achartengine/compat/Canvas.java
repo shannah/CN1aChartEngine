@@ -13,10 +13,10 @@ import com.codename1.ui.Font;
 import com.codename1.ui.Image;
 import org.achartengine.compat.GradientDrawable.Orientation;
 import org.achartengine.compat.Paint.Align;
-import pisces.d.Point2D;
-import pisces.d.Rectangle2D;
-import pisces.m.Matrix;
-import pisces.m.Tuple;
+import ca.weblite.pisces.d.Point2D;
+import ca.weblite.pisces.d.Rectangle2D;
+import ca.weblite.pisces.m.Matrix;
+import ca.weblite.pisces.m.Tuple;
 
 /**
  *
@@ -25,9 +25,8 @@ import pisces.m.Tuple;
 public class Canvas  {
     
     com.codename1.ui.Graphics g;
-    static pisces.Graphics pg  = new pisces.Graphics(Display.getInstance().getDisplayWidth(), Display.getInstance().getDisplayHeight());;
+    static ca.weblite.pisces.Graphics pg  = new ca.weblite.pisces.Graphics(Display.getInstance().getDisplayWidth(), Display.getInstance().getDisplayHeight());;
     Matrix transform = new Matrix().setIdentity();
-    
     // placeholder for loading temp rectangle data
     // maximizes object reuse -- easier on gc
     private Rectangle2D r1 = new Rectangle2D(0,0,0,0);
@@ -39,6 +38,7 @@ public class Canvas  {
         Display d = Display.getInstance();
         pg.setAntialiasing(true);
     }
+
     
     
     public void getClipBounds(Rect mRect) {
@@ -110,8 +110,8 @@ public class Canvas  {
         
     }
     
-    private void applyPaintToPisces(Paint paint, pisces.Graphics g){
-        pisces.Color c = new pisces.Color(paint.getColor());
+    private void applyPaintToPisces(Paint paint, ca.weblite.pisces.Graphics g){
+        ca.weblite.pisces.Color c = new ca.weblite.pisces.Color(paint.getColor());
         g.setColor(c);
         Typeface typeFace = paint.getTypeface();
         if ( typeFace != null ){
@@ -146,7 +146,7 @@ public class Canvas  {
             }
             
         } else {
-            pisces.Path p = new pisces.Path();
+            ca.weblite.pisces.Path p = new ca.weblite.pisces.Path();
             p.moveTo(left, top);
             p.lineTo(right, top);
             p.lineTo(right, bottom);
@@ -164,7 +164,7 @@ public class Canvas  {
             applyPaintToPisces(paint, pg);
             int offX = 0;
             int offY = 0;
-            pisces.Font pf = pg.getFont();
+            ca.weblite.pisces.Font pf = pg.getFont();
             paint.getPiscesTextBounds(string, 0, string.length(), rc1);
             //Log.p(rc1+"");
             if ( paint.getTextAlign() == Align.CENTER){
@@ -174,7 +174,7 @@ public class Canvas  {
             }
             int h = rc1.bottom-rc1.top;
             //Log.p("H is "+h);
-            pisces.Path p = new pisces.Path();
+            ca.weblite.pisces.Path p = new ca.weblite.pisces.Path();
             
             paint.getTypeface().piscesFont().draw(p, string, 0, pf.getAscent(), 0);
             
@@ -206,13 +206,13 @@ public class Canvas  {
 
     public void drawPath(Path path, Paint paint) {
         //Log.p("Drawing path:"+path);
-        pisces.Path p = path.path();
+        ca.weblite.pisces.Path p = path.path();
         drawPath(p, paint);
         
         
     }
 
-    private void drawPath(pisces.Path p, Paint paint){
+    private void drawPath(ca.weblite.pisces.Path p, Paint paint){
         //Log.p("Drawing pisces path:"+p);
         normalizeTransform();
         if ( transform != null && !transform.isIdentity()){
@@ -224,8 +224,8 @@ public class Canvas  {
         if (bounds.width == 0 ) bounds.width = 1;
         if ( bounds.height == 0 ) bounds.height = 1;
         //Log.p(bounds+"");
-        pisces.Graphics i = pg;//new pisces.Graphics((int)bounds.getWidth(), (int)bounds.getHeight());
-        i.setColor(pisces.Color.Transparent.White);
+        ca.weblite.pisces.Graphics i = pg;//new pisces.Graphics((int)bounds.getWidth(), (int)bounds.getHeight());
+        i.setColor(ca.weblite.pisces.Color.Transparent.White);
         i.clearRect(0, 0, bounds.getWidth(), bounds.getHeight());
         applyPaintToPisces(paint, i);
         Matrix translate = Matrix.getTranslateInstance(-bounds.getX(), -bounds.getY());
@@ -258,7 +258,7 @@ public class Canvas  {
             g.drawLine((int)x1, (int)y1, (int)x2, (int)y2);
         } else {
             
-            pisces.Path p = new pisces.Path();
+            ca.weblite.pisces.Path p = new ca.weblite.pisces.Path();
             p.moveTo(x1, y1);
             p.lineTo(x2, y2);
             p.end();
@@ -322,7 +322,7 @@ public class Canvas  {
             points[count++] = new Point2D(x, y);
         }
         
-        pisces.Path circle = new pisces.Path();
+        ca.weblite.pisces.Path circle = new ca.weblite.pisces.Path();
         for(int j = 0; j < points.length; j++)
         {
             if(j == 0)
@@ -367,7 +367,7 @@ public class Canvas  {
             points[count++] = new Point2D(x, y);
         }
         
-        pisces.Path circle = new pisces.Path();
+        ca.weblite.pisces.Path circle = new ca.weblite.pisces.Path();
         for(int j = 0; j < count; j++)
         {
             if(j == 0)
@@ -443,7 +443,7 @@ public class Canvas  {
                    colors = new int[colors.length];
                    //Log.p("Looping through colors");
                    for ( int i=0; i<colors.length; i++){
-                       //Log.p("Gradient from "+(new pisces.Color(gradient.colors[i])));
+                       //Log.p("Gradient from "+(new ca.weblite.pisces.Color(gradient.colors[i])));
                        colors[i] = gradient.colors[colors.length-i-1];
                    }
                }

@@ -7,7 +7,6 @@
 package org.achartengine.compat;
 
 
-import com.codename1.io.Log;
 import com.codename1.ui.Font;
 import com.codename1.ui.Graphics;
 
@@ -40,7 +39,7 @@ public class Paint {
                 widths[i] = f.charWidth(chars[i]);
             }
         } else {
-            pisces.Font f2 = getTypeface().piscesFont();
+            ca.weblite.pisces.Font f2 = getTypeface().piscesFont();
             if ( f2 != null ){
                 char[] chars = text.toCharArray();
                 for ( int i=0; i<chars.length && i<widths.length; i++){
@@ -72,7 +71,7 @@ public class Paint {
             }
             
         } else {
-            pisces.Font f2 = getTypeface().piscesFont();
+            ca.weblite.pisces.Font f2 = getTypeface().piscesFont();
             if ( f2 != null ){
                 int start = measureForwards ? 0 : chars.length-1;
                 int inc = measureForwards ? 1 : -1;
@@ -114,7 +113,7 @@ public class Paint {
     
     void getPiscesTextBounds(String string, int start, int count, Rect rect){
         //Log.p("Text size "+this.getTextSize());
-        pisces.Font f2 = getTypeface().piscesFont().deriveFont(this.getTextSize());
+        ca.weblite.pisces.Font f2 = getTypeface().piscesFont().deriveFont(this.getTextSize());
         if ( f2 != null ){
             char[] chars = string.toCharArray();
             rect.set(0, 0, (int)measurePiscesText(chars, start, count), (int)measurePiscesTextHeight(chars, start, count));
@@ -140,7 +139,7 @@ public class Paint {
     
     float measurePiscesTextHeight(char[] chars, int start, int count){
         float h = 0f;
-        pisces.Font f2 = getTypeface().piscesFont().deriveFont(textSize);
+        ca.weblite.pisces.Font f2 = getTypeface().piscesFont().deriveFont(textSize);
         if ( f2 != null ){
             for ( int i=start; i<chars.length && i<start+count; i++){
                 float nh = f2.getGlyph(chars[i]).getHeight();
@@ -169,7 +168,7 @@ public class Paint {
     }
     
      float measurePiscesText(char[] chars, int start, int count){
-        pisces.Font f2 = getTypeface().piscesFont().deriveFont(textSize);
+        ca.weblite.pisces.Font f2 = getTypeface().piscesFont().deriveFont(textSize);
         float out = 0f;
         if ( f2 != null ){
             

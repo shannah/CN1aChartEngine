@@ -7,9 +7,9 @@
 package org.achartengine.compat;
 
 import ca.weblite.codename1.fontbox.FontBoxFontProvider;
-import com.codename1.io.Log;
 import com.codename1.ui.Display;
 import com.codename1.ui.Font;
+
 import java.io.InputStream;
 
 /**
@@ -19,7 +19,7 @@ import java.io.InputStream;
 public class Typeface {
     
     Font cn1Font = null;
-    pisces.Font piscesFont = null;
+    ca.weblite.pisces.Font piscesFont = null;
     
     Font cn1Font(){
         return cn1Font;
@@ -29,7 +29,7 @@ public class Typeface {
         cn1Font = f;
     }
     
-    pisces.Font piscesFont(){
+    ca.weblite.pisces.Font piscesFont(){
         return piscesFont;
     }
     
@@ -79,7 +79,7 @@ public class Typeface {
         }
         Typeface tf = new Typeface(name, type);
         tf.cn1Font = Font.createTrueTypeFont("Roboto-Black", "Roboto-Black.ttf");//Font.createSystemFont(Font.FACE_SYSTEM, Font.SIZE_SMALL, Font.STYLE_PLAIN);
-        tf.piscesFont = pisces.Font.getFont("Roboto-Black", 10);
+        tf.piscesFont = ca.weblite.pisces.Font.getFont("Roboto-Black", 10);
         return tf;
     }
 }
