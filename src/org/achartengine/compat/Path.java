@@ -12,14 +12,14 @@ package org.achartengine.compat;
  */
 public class Path {
 
-    private pisces.Path path;
-    pisces.Path path(){
+    private ca.weblite.pisces.Path path;
+    ca.weblite.pisces.Path path(){
         return path;
         
     }
     
     public Path(){
-        path = new pisces.Path();
+        path = new ca.weblite.pisces.Path();
         
     }
     
