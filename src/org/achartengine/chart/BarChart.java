@@ -15,6 +15,7 @@
  */
 package org.achartengine.chart;
 
+import java.util.Arrays;
 import java.util.List;
 import org.achartengine.compat.Canvas;
 import org.achartengine.compat.Color;
@@ -93,6 +94,11 @@ public class BarChart extends XYChart {
     return ret;
   }
 
+  private class Point {
+      int seriesIndex;
+      float yval;
+  }
+  
   /**
    * The graphical representation of a series.
    * 
@@ -112,6 +118,17 @@ public class BarChart extends XYChart {
     paint.setColor(seriesRenderer.getColor());
     paint.setStyle(Style.FILL);
     float halfDiffX = getHalfDiffX(points, length, seriesNr);
+    
+    Point[] yvals = new Point[length/2];
+    for ( int i=0; i<length; i += 2 ){
+        Point p = new Point();
+        p.seriesIndex = i/2;
+        p.yval = points.get(i+1);
+        yvals[i/2] = p;
+    }
+    
+    
+    
     for (int i = 0; i < length; i += 2) {
       float x = points.get(i);
       float y = points.get(i + 1);

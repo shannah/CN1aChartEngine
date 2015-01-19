@@ -32,7 +32,7 @@ public class View {
     private Bitmap drawingCache;
     Peer peer;
 
-    private boolean touchEventsEnabled = false;
+    private boolean touchEventsEnabled = true;
     private int renderedWidth=0;
     private int renderedHeight=0;
     private final static boolean DEBUG = false;
@@ -60,6 +60,7 @@ public class View {
     }
     
     public boolean onTouchEvent(MotionEvent event) {
+        
         return false;
     }
 
@@ -116,6 +117,17 @@ public class View {
 
         @Override
         public void paint(Graphics g) {
+            
+            canvas.g = g;
+            canvas.bounds = this.getBounds();
+            canvas.absoluteX = this.getAbsoluteX();
+            canvas.absoluteY = this.getAbsoluteY();
+            g.setAntiAliased(true);
+            onDraw(canvas);
+            g.setAntiAliased(false);
+            if ( true ){
+                return;
+            }
             boolean rendered = false;
             if ( (renderedWidth != getWidth() || renderedHeight != getHeight() || buffer == null || updateBuffer) && !renderingBuffer ){
                 if ( DEBUG ){
@@ -196,6 +208,7 @@ public class View {
         
         
 
+        
         public void run() {
             Image buf = Image.createImage(renderingWidth, renderingHeight, bgColor);
             

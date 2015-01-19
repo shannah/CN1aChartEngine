@@ -6,6 +6,8 @@
 
 package org.achartengine.compat;
 
+import com.codename1.ui.geom.PathIterator;
+
 /**
  *
  * @author shannah
@@ -20,15 +22,14 @@ public class PathMeasure {
         forceClosed = b;
     }
     
-    public int getLength(){
-        return path.path().length();
+    public float getLength(){
+        return 10;
     }
 
     public void getPosTan(int i, float[] coords, float[] tan) {
-        if ( tan != null ){
-            throw new RuntimeException("Tangents not implemented yet");
-        }
-        path.path().getPoint(i, coords);
+        
+        //throw new RuntimeException("Tangents not implemented yet");
+        
     }
     
 }

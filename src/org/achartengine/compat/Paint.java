@@ -39,13 +39,7 @@ public class Paint {
                 widths[i] = f.charWidth(chars[i]);
             }
         } else {
-            ca.weblite.pisces.Font f2 = getTypeface().piscesFont();
-            if ( f2 != null ){
-                char[] chars = text.toCharArray();
-                for ( int i=0; i<chars.length && i<widths.length; i++){
-                    widths[i] = f2.getGlyph(chars[i]).getWidth();
-                }
-            }
+           throw new RuntimeException("Faild to get cn1 font");
         }
         
     }
@@ -71,23 +65,7 @@ public class Paint {
             }
             
         } else {
-            ca.weblite.pisces.Font f2 = getTypeface().piscesFont();
-            if ( f2 != null ){
-                int start = measureForwards ? 0 : chars.length-1;
-                int inc = measureForwards ? 1 : -1;
-
-                float currWidth = 0f;
-                for ( int i=start; (measureForwards && i<chars.length) || (!measureForwards && i>=0) ; i+=inc){
-                    tmp = f2.getGlyph(chars[i]).getWidth();
-                    if ( currWidth + tmp > maxWidth ){
-                        return i;
-                    }
-                    if ( measuredWidth != null && i < measuredWidth.length ){
-                        measuredWidth[i] = tmp;
-                    }
-                    currWidth += tmp;
-                }
-            }
+            throw new RuntimeException("Failed to get font");
         }
         return chars.length;
     }
@@ -97,7 +75,7 @@ public class Paint {
         if ( f != null ){
             getCN1TextBounds(string, start, count, rect);
         } else {
-            getPiscesTextBounds(string, start, count, rect);
+            throw new RuntimeException("Failed to get font");
             
         }
     }
@@ -111,16 +89,7 @@ public class Paint {
         }
     }
     
-    void getPiscesTextBounds(String string, int start, int count, Rect rect){
-        //Log.p("Text size "+this.getTextSize());
-        ca.weblite.pisces.Font f2 = getTypeface().piscesFont().deriveFont(this.getTextSize());
-        if ( f2 != null ){
-            char[] chars = string.toCharArray();
-            rect.set(0, 0, (int)measurePiscesText(chars, start, count), (int)measurePiscesTextHeight(chars, start, count));
-        } else {
-            //Log.p("Font is null");
-        }
-    }
+    
 
     
     float measureTextHeight(char[] chars, int start, int count){
@@ -132,23 +101,12 @@ public class Paint {
                 h = nh > h ? nh : h;
             }
         } else {
-            return measurePiscesTextHeight(chars, start, count);
+            throw new RuntimeException("Failed to get font");
         }
         return h;
     }
     
-    float measurePiscesTextHeight(char[] chars, int start, int count){
-        float h = 0f;
-        ca.weblite.pisces.Font f2 = getTypeface().piscesFont().deriveFont(textSize);
-        if ( f2 != null ){
-            for ( int i=start; i<chars.length && i<start+count; i++){
-                float nh = f2.getGlyph(chars[i]).getHeight();
-                h = nh > h ? nh : h;
-            }
-            //Log.p("H is now "+h);
-        }
-        return h;
-    }
+    
     
     public float measureText(String newText) {
         return measureText(newText.toCharArray(), 0, newText.length());
@@ -162,22 +120,12 @@ public class Paint {
                 out += f.charWidth(chars[i]);
             }
         } else {
-            return measurePiscesText(chars, start, count);
+            throw new RuntimeException("Failed to get font");
         }
         return out;
     }
     
-     float measurePiscesText(char[] chars, int start, int count){
-        ca.weblite.pisces.Font f2 = getTypeface().piscesFont().deriveFont(textSize);
-        float out = 0f;
-        if ( f2 != null ){
-            
-            for ( int i=start; i< chars.length && i < start+count; i++){
-                out += f2.getGlyph(chars[i]).getWidth();
-            }
-        }
-        return out;
-     }
+    
 
     public void setAntiAlias(boolean antialiasing) {
         this.antiAlias = antialiasing;
@@ -289,7 +237,7 @@ public class Paint {
         textSize = size;
         if ( this.typeface != null ){
             this.typeface.cn1Font  = Typeface.SERIF.cn1Font.derive(size, Font.STYLE_PLAIN);
-            this.typeface.piscesFont = Typeface.SERIF.piscesFont.deriveFont(size);
+            
         }
     }
     
