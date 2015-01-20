@@ -48,12 +48,10 @@ Alpha.
 1. The [CN1Pisces](https://github.com/shannah/CN1Pisces) library.
 2. The [CN1FontBox](https://github.com/shannah/CN1FontBox) library.
 
-##Installation
+##Download
 
-1. Add the [CN1Pisces](https://github.com/shannah/CN1Pisces) library to your Netbeans project.
-2. Add the [CN1FontBox](https://github.com/shannah/CN1FontBox) library to your Netbeans project.
-3. Copy the [CN1aChartEngine.cn1lib](https://github.com/shannah/CN1aChartEngine/raw/master/dist/CN1aChartEngine.cn1lib) file into your Netbeans project's lib directory.
-4. Select "Refresh Libs" in your project by right clicking on the project icon in the project explorer and selecting "Refresh Libs" from the menu.
+* [Latest Release (2.0)](https://github.com/shannah/CN1aChartEngine/releases/latest) - Best option for iOS, Android, & Simulator
+* [Version 1.0](https://github.com/shannah/CN1aChartEngine/releases/tag/1.0) - Best option for legacy platforms (J2ME, BlackBerry, Windows Phone), but slower than the latest release.
 
 ##Documentation
 
