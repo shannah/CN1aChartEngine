@@ -58,6 +58,7 @@
 
     <target name="jar" depends="compile,Stubs">
         <mkdir dir="build/lib" />
+        <mkdir dir="build/stubs"/>
         <zip basedir="${build.classes.dir}" compress="false" destfile="build/lib/main.zip" />
         <zip basedir="build/stubs" compress="false" destfile="build/lib/stubs.zip" />
         <copy file="manifest.properties" todir="build/lib" />
@@ -72,6 +73,7 @@
     </target>
 
     <target name="buildNativeRIM">
+        <mkdir dir="native/rim"/>
         <path id="rimNativeDir">
             <fileset dir="native/rim"/>
         </path> 
@@ -90,6 +92,7 @@
     </target>
 
     <target name="buildNativeAND">
+        <mkdir dir="native/android"/>
         <path id="andNativeDir">
             <fileset dir="native/android"/>
         </path> 
@@ -127,6 +130,7 @@
     </target>
 
     <target name="buildNativeWIN">
+        <mkdir dir="native/win"/>
         <path id="winNativeDir">
             <fileset dir="native/win"/>
         </path> 
@@ -145,6 +149,7 @@
     </target>
 
     <target name="buildNativeIOS">
+        <mkdir dir="native/ios"/>
         <path id="iosNativeDir">
             <fileset dir="native/ios"/>
         </path> 
@@ -159,10 +164,12 @@
     <target name="createIosZip"
         unless="doesntHaveIosFiles">
         <echo>Zipping ios native code</echo>
+        <mkdir dir="native/ios"/>
         <zip basedir="native/ios" compress="false" destfile="build/lib/nativeios.zip" />
     </target>
 
     <target name="buildNativeME">
+        <mkdir dir="native/j2me"/>
         <path id="meNativeDir">
             <fileset dir="native/j2me"/>
         </path> 
