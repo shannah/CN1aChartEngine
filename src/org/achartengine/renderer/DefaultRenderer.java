@@ -210,7 +210,7 @@ public class DefaultRenderer implements Serializable {
    * @return the simple renderers array
    */
   public SimpleSeriesRenderer[] getSeriesRenderers() {
-    return mRenderers.toArray(new SimpleSeriesRenderer[0]);
+    return mRenderers.toArray(new SimpleSeriesRenderer[mRenderers.size()]);
   }
 
   /**
