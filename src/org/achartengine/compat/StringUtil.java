@@ -27,6 +27,6 @@ public class StringUtil {
             throw new RuntimeException("Failed to find appropriate stop character");
         }
         List<String> parts = com.codename1.util.StringUtil.tokenize(input, sep);
-        return parts.toArray(new String[0]);
+        return parts.toArray(new String[parts.size()]);
     }
 }
