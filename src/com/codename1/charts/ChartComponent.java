@@ -8,9 +8,11 @@ package com.codename1.charts;
 import com.codename1.charts.models.Point;
 import com.codename1.charts.models.SeriesSelection;
 import com.codename1.charts.views.AbstractChart;
+import com.codename1.io.Log;
 import com.codename1.ui.Component;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.Transform;
+import java.util.Arrays;
 
 
 /**
@@ -117,6 +119,9 @@ public class ChartComponent extends Component {
      */
     @Override
     public void paint(Graphics g) {
+        int[] clip = g.getClip();
+        
+        Log.p("Clip before "+Arrays.toString(clip));
         super.paint(g);
         boolean oldAntialias = g.isAntiAliased();
         g.setAntiAliased(true);
@@ -139,7 +144,9 @@ public class ChartComponent extends Component {
         if ( oldTransform != null ){
             g.setTransform(oldTransform);
         }
-        
+        g.resetAffine();
+        Log.p("Clip after "+Arrays.toString(clip));
+        g.setClip(clip);
         g.setAntiAliased(oldAntialias);
     }
 
