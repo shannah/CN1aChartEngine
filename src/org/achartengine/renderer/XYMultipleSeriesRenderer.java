@@ -686,7 +686,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
    * @return the Y text label locations
    */
   public synchronized Double[] getYTextLabelLocations(int scale) {
-    return mYTextLabels.get(scale).keySet().toArray(new Double[mYTextLabels.size()]);
+    return mYTextLabels.get(scale).keySet().toArray(new Double[mYTextLabels.get(scale).size()]);
   }
 
   /**
