@@ -20,7 +20,8 @@ public class PathMeasure {
         forceClosed = b;
     }
     
-    public int getLength(){
+    public float getLength(){
+        
         return path.path().length();
     }
 
